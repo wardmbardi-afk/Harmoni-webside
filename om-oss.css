@@ -1,0 +1,566 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(255, 221, 183, 0.07),
+            transparent 35%
+        ),
+        #3C0008;
+
+    color: #ffddb7;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+header {
+    min-height: 300px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    padding: 70px 30px;
+
+    text-align: center;
+
+    border-bottom: 1px solid
+        rgba(255, 221, 183, 0.12);
+}
+
+
+/* Decorative frame */
+
+header::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 25px;
+
+    border: 1px solid
+        rgba(255, 221, 183, 0.12);
+
+    border-radius: 28px;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.brand {
+    position: relative;
+    z-index: 2;
+
+    animation:
+        fadeUp 1s ease both;
+}
+
+.brand h1 {
+    font-size:
+        clamp(55px, 9vw, 110px);
+
+    font-weight: 500;
+
+    letter-spacing: 8px;
+
+    text-transform: uppercase;
+
+    color: #ffddb7;
+
+    text-shadow:
+        0 0 30px
+        rgba(255, 221, 183, 0.08);
+}
+
+
+/* Decorative lines around title */
+
+.brand::before,
+.brand::after {
+    content: "";
+
+    display: block;
+
+    width: 110px;
+    height: 1px;
+
+    margin: 22px auto;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(255, 221, 183, 0.7),
+            transparent
+        );
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+main {
+    width: 100%;
+
+    padding:
+        90px
+        8%;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+
+/* =========================================
+   ABOUT SECTION
+========================================= */
+
+section {
+    width: min(900px, 100%);
+
+    position: relative;
+
+    padding:
+        60px
+        clamp(25px, 6vw, 70px);
+
+    text-align: center;
+
+    background:
+        rgba(255, 221, 183, 0.025);
+
+    border:
+        1px solid
+        rgba(255, 221, 183, 0.15);
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 20px 80px
+        rgba(0, 0, 0, 0.18);
+
+    animation:
+        fadeUp 1s ease .15s both;
+}
+
+
+/* Decorative corners */
+
+section::before,
+section::after {
+    content: "✦";
+
+    position: absolute;
+
+    font-size: 16px;
+
+    color: #ffddb7;
+
+    opacity: .6;
+}
+
+section::before {
+    top: 25px;
+    left: 30px;
+}
+
+section::after {
+    top: 25px;
+    right: 30px;
+}
+
+
+/* =========================================
+   TEXT
+========================================= */
+
+section p {
+    font-size:
+        clamp(17px, 2vw, 20px);
+
+    line-height: 1.9;
+
+    letter-spacing: .3px;
+
+    color:
+        rgba(255, 221, 183, 0.86);
+
+    text-align: left;
+}
+
+
+/* =========================================
+   MENU BUTTON
+========================================= */
+
+.meny {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 40px;
+
+    padding:
+        15px 34px;
+
+    border:
+        1px solid
+        #ffddb7;
+
+    border-radius: 50px;
+
+    color: #ffddb7;
+
+    text-decoration: none;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+
+.meny:hover {
+    background: #ffddb7;
+
+    color: #3C0008;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(255, 221, 183, .15);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    width: 100%;
+
+    padding:
+        70px 8% 40px;
+
+    border-top:
+        1px solid
+        rgba(255, 221, 183, .12);
+
+    position: relative;
+}
+
+
+/* =========================================
+   FOLLOW CARD
+========================================= */
+
+.follow-card {
+    width: min(700px, 100%);
+
+    margin: auto;
+
+    padding:
+        45px 35px;
+
+    text-align: center;
+
+    background:
+        rgba(255, 221, 183, 0.025);
+
+    border:
+        1px solid
+        rgba(255, 221, 183, .12);
+
+    border-radius: 22px;
+
+    animation:
+        fadeUp 1s ease .3s both;
+}
+
+
+/* =========================================
+   FOLLOW TITLE
+========================================= */
+
+.follow-card h3 {
+    margin-bottom: 30px;
+
+    font-size: 28px;
+
+    font-weight: 500;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+}
+
+
+.follow-card h3::after {
+    content: "";
+
+    display: block;
+
+    width: 60px;
+    height: 1px;
+
+    margin: 18px auto 0;
+
+    background: #ffddb7;
+
+    opacity: .6;
+}
+
+
+/* =========================================
+   FOOTER TEXT
+========================================= */
+
+.follow-card p {
+    margin: 14px 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    color:
+        rgba(255, 221, 183, .65);
+}
+
+
+/* =========================================
+   LINKS
+========================================= */
+
+.follow-card a {
+    color: #ffddb7;
+
+    text-decoration: none;
+
+    margin-left: 5px;
+
+    transition:
+        opacity .25s ease;
+}
+
+
+.follow-card a:hover {
+    opacity: .6;
+}
+
+
+/* =========================================
+   COPYRIGHT
+========================================= */
+
+.follow-card p:last-child {
+    margin-top: 35px;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid
+        rgba(255, 221, 183, .1);
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    opacity: .5;
+}
+
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 700px) {
+
+    header {
+        min-height: 240px;
+
+        padding: 50px 20px;
+    }
+
+    header::before {
+        inset: 15px;
+
+        border-radius: 18px;
+    }
+
+    .brand h1 {
+        font-size: 48px;
+
+        letter-spacing: 5px;
+    }
+
+    main {
+        padding:
+            55px 20px;
+    }
+
+    section {
+        padding:
+            40px 25px;
+    }
+
+    section p {
+        font-size: 16px;
+
+        line-height: 1.8;
+    }
+
+    footer {
+        padding:
+            50px 20px 30px;
+    }
+}
+
+
+/* =========================================
+   PHONE
+========================================= */
+
+@media (max-width: 450px) {
+
+    header {
+        min-height: 210px;
+    }
+
+    .brand h1 {
+        font-size: 38px;
+
+        letter-spacing: 4px;
+    }
+
+    .brand::before,
+    .brand::after {
+        width: 70px;
+
+        margin: 15px auto;
+    }
+
+    main {
+        padding:
+            35px 12px;
+    }
+
+    section {
+        padding:
+            35px 20px;
+
+        border-radius: 18px;
+    }
+
+    section::before {
+        left: 18px;
+    }
+
+    section::after {
+        right: 18px;
+    }
+
+    section p {
+        font-size: 15px;
+
+        line-height: 1.75;
+    }
+
+    .meny {
+        width: 100%;
+
+        padding:
+            14px 20px;
+    }
+
+    footer {
+        padding:
+            35px 12px 25px;
+    }
+
+    .follow-card {
+        padding:
+            35px 18px;
+    }
+
+    .follow-card h3 {
+        font-size: 22px;
+
+        letter-spacing: 3px;
+    }
+
+    .follow-card p {
+        font-size: 13px;
+
+        word-break: break-word;
+    }
+}
