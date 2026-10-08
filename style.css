@@ -1,0 +1,106 @@
+@media (max-width: 575.98px) {
+    .hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+        text-align: center;
+    }
+
+    .left-text,
+    .logo,
+    .right-text,
+    .since {
+        grid-column: 1;
+    }
+
+    .logo img {
+        width: 80px;
+        height: 80px;
+    }
+}
+body{
+    background-color: #340007;
+    color: #ffddb7;
+}
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.hero {
+    min-height: 300px;
+    display: grid;
+    grid-template-columns: 1fr 180px 1fr;
+    grid-template-rows: 1fr auto;
+    align-items: center;
+    padding: 30px 5%;
+    text-align: center;
+}
+
+/* Left side */
+.left-text {
+    grid-column: 1;
+}
+
+.left-text h1 {
+    margin: 0;
+    font-size: clamp(25px, 4vw, 45px);
+}
+
+/* Logo in the middle */
+.logo {
+    grid-column: 2;
+}
+
+.logo img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+
+/* Right side */
+.right-text {
+    grid-column: 3;
+}
+
+.right-text h1 {
+    margin: 0;
+    font-size: clamp(25px, 4vw, 45px);
+}
+
+/* Sen 2002 */
+.since {
+    grid-column: 1 / 4;
+}
+
+.since h2 {
+    margin: 10px 0 0;
+    font-size: 20px;
+}
+
+/* Phone */
+@media (max-width: 600px) {
+
+    .hero {
+        grid-template-columns: 1fr 100px 1fr;
+        padding: 20px 10px;
+        min-height: 220px;
+    }
+
+    .logo img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .left-text h1,
+    .right-text h1 {
+        font-size: 20px;
+    }
+
+    .since h2 {
+        font-size: 15px;
+    }
+}
