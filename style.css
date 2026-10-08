@@ -1,106 +1,812 @@
-@media (max-width: 575.98px) {
-    .hero {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto auto;
-        text-align: center;
-    }
+/* =========================================
+   RESET
+========================================= */
 
-    .left-text,
-    .logo,
-    .right-text,
-    .since {
-        grid-column: 1;
-    }
-
-    .logo img {
-        width: 80px;
-        height: 80px;
-    }
-}
-body{
-    background-color: #340007;
-    color: #ffddb7;
-}
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(255, 221, 183, 0.07),
+            transparent 35%
+        ),
+        #3C0008;
+
+    color: #ffddb7;
+
+    font-family:
+        "Georgia",
+        "Times New Roman",
+        serif;
+
+    overflow-x: hidden;
 }
+
+
+/* =========================================
+   HERO
+========================================= */
 
 .hero {
-    min-height: 300px;
+
+    min-height: 520px;
+    width: 100%;
+
+    position: relative;
+
     display: grid;
-    grid-template-columns: 1fr 180px 1fr;
-    grid-template-rows: 1fr auto;
+
+    grid-template-columns:
+        minmax(250px, 1fr)
+        280px
+        minmax(250px, 1fr);
+
+    grid-template-rows:
+        1fr
+        auto;
+
     align-items: center;
-    padding: 30px 5%;
-    text-align: center;
+
+    padding:
+        70px
+        clamp(30px, 7vw, 120px);
+
+    isolation: isolate;
+
+    overflow: hidden;
 }
 
-/* Left side */
-.left-text {
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 25px;
+
+    border: 1px solid
+        rgba(255, 221, 183, 0.12);
+
+    border-radius: 28px;
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+.hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 700px;
+    height: 700px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    border: 1px solid
+        rgba(255, 221, 183, 0.04);
+
+    box-shadow:
+        0 0 100px
+        rgba(255, 221, 183, 0.04);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* =========================================
+   LEFT + RIGHT BRAND
+========================================= */
+
+.brand {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    animation:
+        fadeUp 1s ease both;
+}
+
+
+.brand-left {
+
     grid-column: 1;
+
+    text-align: right;
+
+    padding-right: 45px;
+
+    align-items: flex-end;
 }
 
-.left-text h1 {
-    margin: 0;
-    font-size: clamp(25px, 4vw, 45px);
+
+.brand-right {
+
+    grid-column: 3;
+
+    text-align: left;
+
+    padding-left: 45px;
+
+    align-items: flex-start;
+
+    animation-delay: .15s;
 }
 
-/* Logo in the middle */
-.logo {
+
+/* =========================================
+   SMALL TEXT
+========================================= */
+
+.small-text {
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    font-weight: 600;
+
+    opacity: .65;
+}
+
+
+/* =========================================
+   MAIN BRAND
+========================================= */
+
+.brand h1,
+.brand h2 {
+
+    font-size:
+        clamp(34px, 5vw, 68px);
+
+    line-height: .9;
+
+    font-weight: 600;
+
+    letter-spacing: 5px;
+
+    color: #ffddb7;
+
+    text-shadow:
+        0 0 25px
+        rgba(255, 221, 183, .08);
+}
+
+
+.brand h2 {
+
+    font-size:
+        clamp(32px, 4.5vw, 58px);
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================================
+   LOCATION
+========================================= */
+
+.location {
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 13px;
+
+    letter-spacing: 7px;
+
+    opacity: .75;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo-wrapper {
+
     grid-column: 2;
+    grid-row: 1;
+
+    width: 280px;
+    height: 280px;
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    animation:
+        logoAppear 1.2s cubic-bezier(.2,.8,.2,1)
+        both;
 }
+
+
+/* =========================================
+   LOGO IMAGE
+========================================= */
+
+.logo {
+
+    width: 215px;
+    height: 215px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    position: relative;
+
+    z-index: 3;
+
+    background: #3C0008;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    box-shadow:
+        0 0 0 1px
+        rgba(255, 221, 183, .35),
+
+        0 0 45px
+        rgba(255, 221, 183, .08);
+
+    transition:
+        transform .5s ease,
+        box-shadow .5s ease;
+}
+
 
 .logo img {
-    width: 150px;
-    height: 150px;
-    object-fit: contain;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform .6s ease;
 }
 
-/* Right side */
-.right-text {
-    grid-column: 3;
+
+/* =========================================
+   LOGO HOVER
+========================================= */
+
+.logo:hover {
+
+    transform: scale(1.04);
+
+    box-shadow:
+        0 0 0 1px
+        rgba(255, 221, 183, .7),
+
+        0 0 65px
+        rgba(255, 221, 183, .16);
 }
 
-.right-text h1 {
-    margin: 0;
-    font-size: clamp(25px, 4vw, 45px);
+
+.logo:hover img {
+
+    transform: scale(1.05);
 }
 
-/* Sen 2002 */
+
+/* =========================================
+   DECORATIVE RINGS
+========================================= */
+
+.logo-ring {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+.ring-outer {
+
+    width: 270px;
+    height: 270px;
+
+    border:
+        1px solid
+        rgba(255, 221, 183, .55);
+
+    animation:
+        rotateSlow 30s linear infinite;
+}
+
+
+.ring-inner {
+
+    width: 245px;
+    height: 245px;
+
+    border:
+        1px dashed
+        rgba(255, 221, 183, .25);
+}
+
+
+/* =========================================
+   SMALL DECORATIVE DOTS
+========================================= */
+
+.logo-wrapper::before,
+.logo-wrapper::after {
+
+    content: "✦";
+
+    position: absolute;
+
+    color: #ffddb7;
+
+    font-size: 12px;
+
+    opacity: .6;
+
+    z-index: 5;
+}
+
+
+.logo-wrapper::before {
+
+    left: 3px;
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+
+.logo-wrapper::after {
+
+    right: 3px;
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+
+/* =========================================
+   SINCE
+========================================= */
+
 .since {
+
     grid-column: 1 / 4;
+    grid-row: 2;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 18px;
+
+    margin-top: 55px;
+
+    animation:
+        fadeUp 1s ease .3s both;
 }
 
-.since h2 {
-    margin: 10px 0 0;
+
+.line {
+
+    width: clamp(50px, 10vw, 140px);
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(255, 221, 183, .55)
+        );
+}
+
+
+.line:last-child {
+
+    background:
+        linear-gradient(
+            to left,
+            transparent,
+            rgba(255, 221, 183, .55)
+        );
+}
+
+
+.since-content {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.since-content span {
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    opacity: .65;
+}
+
+
+.since-content strong {
+
     font-size: 20px;
+
+    letter-spacing: 4px;
+
+    font-weight: 500;
 }
 
-/* Phone */
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes logoAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(.7)
+            rotate(-8deg);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            rotate(0);
+    }
+}
+
+
+@keyframes rotateSlow {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .hero {
+
+        grid-template-columns:
+            1fr 190px 1fr;
+
+        padding:
+            55px 25px;
+    }
+
+
+    .logo-wrapper {
+
+        width: 190px;
+        height: 190px;
+    }
+
+
+    .logo {
+
+        width: 145px;
+        height: 145px;
+    }
+
+
+    .ring-outer {
+
+        width: 180px;
+        height: 180px;
+    }
+
+
+    .ring-inner {
+
+        width: 165px;
+        height: 165px;
+    }
+
+
+    .brand-left {
+
+        padding-right: 20px;
+    }
+
+
+    .brand-right {
+
+        padding-left: 20px;
+    }
+
+
+    .brand h1,
+    .brand h2 {
+
+        font-size: 32px;
+    }
+
+
+    .location {
+
+        font-size: 10px;
+
+        letter-spacing: 4px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
 @media (max-width: 600px) {
 
     .hero {
-        grid-template-columns: 1fr 100px 1fr;
-        padding: 20px 10px;
-        min-height: 220px;
+
+        min-height: 650px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        gap: 25px;
+
+        padding:
+            55px 20px;
     }
 
-    .logo img {
-        width: 90px;
-        height: 90px;
+
+    .brand {
+
+        width: 100%;
+
+        align-items: center !important;
+
+        text-align: center !important;
+
+        padding: 0 !important;
     }
 
-    .left-text h1,
-    .right-text h1 {
-        font-size: 20px;
+
+    .brand-left {
+
+        order: 1;
     }
 
-    .since h2 {
-        font-size: 15px;
+
+    .logo-wrapper {
+
+        order: 2;
+
+        width: 190px;
+        height: 190px;
+    }
+
+
+    .brand-right {
+
+        order: 3;
+    }
+
+
+    .since {
+
+        order: 4;
+
+        width: 100%;
+
+        margin-top: 10px;
+    }
+
+
+    .brand h1,
+    .brand h2 {
+
+        font-size: 38px;
+
+        letter-spacing: 4px;
+    }
+
+
+    .small-text {
+
+        font-size: 9px;
+
+        letter-spacing: 4px;
+    }
+
+
+    .location {
+
+        font-size: 10px;
+
+        letter-spacing: 5px;
+    }
+
+
+    .logo {
+
+        width: 145px;
+        height: 145px;
+    }
+
+
+    .ring-outer {
+
+        width: 180px;
+        height: 180px;
+    }
+
+
+    .ring-inner {
+
+        width: 165px;
+        height: 165px;
+    }
+
+
+    .since {
+
+        gap: 10px;
+    }
+
+
+    .line {
+
+        width: 45px;
+    }
+
+
+    .since-content span {
+
+        font-size: 8px;
+    }
+
+
+    .since-content strong {
+
+        font-size: 16px;
+    }
+
+
+    .hero::before {
+
+        inset: 12px;
+
+        border-radius: 20px;
+    }
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+    .hero {
+
+        min-height: 600px;
+    }
+
+
+    .brand h1,
+    .brand h2 {
+
+        font-size: 31px;
+    }
+
+
+    .logo-wrapper {
+
+        width: 165px;
+        height: 165px;
+    }
+
+
+    .logo {
+
+        width: 125px;
+        height: 125px;
+    }
+
+
+    .ring-outer {
+
+        width: 155px;
+        height: 155px;
+    }
+
+
+    .ring-inner {
+
+        width: 140px;
+        height: 140px;
     }
 }
