@@ -241,14 +241,15 @@ body {
     grid-row: 1;
 
     width: 280px;
-    height: 280px;
+    min-height: 280px;
 
     position: relative;
 
     display: flex;
-
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 28px;
 
     animation:
         logoAppear 1.2s cubic-bezier(.2,.8,.2,1)
@@ -761,11 +762,6 @@ body {
 
         border-radius: 20px;
     }
-    .more-info {
-    top: 25px;
-    right: 25px;
-    }
-
     .more-info a {
     padding: 9px 16px;
     font-size: 10px;
@@ -825,12 +821,13 @@ body {
 ========================================= */
 
 .more-info {
-    position: absolute;
-
-    right: clamp(30px, 7vw, 120px);
-    top: 35px;
-
+    position: relative;
     z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 112px;
+    transform: translateY(100px);
 }
 
 .more-info a {
